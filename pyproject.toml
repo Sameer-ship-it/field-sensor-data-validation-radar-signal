@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "field-sensor-radar-analysis"
+version = "0.1.0"
+description = "Field sensor data validation and radar signal analysis toolkit"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Sameer-ship-it" }]
+dependencies = [
+  "numpy>=1.24,<3",
+  "pandas>=2.0,<4",
+  "scipy>=1.10,<2",
+  "matplotlib>=3.7,<4",
+  "plotly>=5.18,<7",
+  "streamlit>=1.32,<2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
+
+[project.scripts]
+field-sensor-report = "field_sensor_radar.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
